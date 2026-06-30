@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lr 講師ポータル</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 20px 16px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    header h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.04em; }
+    header p  { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+
+    /* FAQ banner */
+    .faq-banner {
+      max-width: 480px;
+      margin: 16px auto 0;
+      padding: 0 12px;
+    }
+
+    .faq-banner a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+      transition: opacity 0.15s, transform 0.12s;
+    }
+
+    .faq-banner a:active { opacity: 0.85; transform: scale(0.97); }
+    .faq-banner .faq-icon { font-size: 18px; }
+
+    /* Back bar */
+    .back-bar {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      cursor: pointer;
+      font-size: 14px;
+      color: #374151;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .back-bar:active { background: #f3f4f6; }
+    .back-bar.visible { display: flex; }
+    .back-arrow { font-size: 18px; line-height: 1; }
+
+    /* ===== CATEGORY GRID ===== */
+    #view-categories { padding: 16px 12px 24px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .cat-btn {
+      border: none;
+      border-radius: 18px;
+      padding: 24px 12px 20px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.12s, box-shadow 0.12s;
+      min-height: 110px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    .cat-btn:active { transform: scale(0.96); box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+    .cat-icon { font-size: 32px; line-height: 1; }
+
+    .cat-btn.blue   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+    .cat-btn.purple { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+    .cat-btn.teal   { background: linear-gradient(135deg, #14b8a6, #0f766e); }
+    .cat-btn.amber  { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .cat-btn.red    { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+    .cat-btn.gray   { background: linear-gradient(135deg, #6b7280, #374151); }
+    .cat-btn.coral  { background: linear-gradient(135deg, #f97316, #ea580c); }
+
+    .cat-btn.wide {
+      grid-column: span 2;
+      flex-direction: row;
+      justify-content: center;
+      min-height: 80px;
+      padding: 16px 24px;
+      gap: 14px;
+      font-size: 15px;
+    }
+    .cat-btn.wide .cat-icon { font-size: 28px; }
+
+    /* ===== ITEM LIST ===== */
+    #view-items { display: none; padding: 12px; max-width: 480px; margin: 0 auto; }
+    .item-list   { display: flex; flex-direction: column; gap: 8px; }
+
+    .item-btn {
+      background: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 16px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      transition: background 0.15s, transform 0.1s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .item-btn:active { background: #f9fafb; transform: scale(0.98); }
+
+    .item-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      color: #fff;
+    }
+
+    .item-text { flex: 1; }
+    .item-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+    .item-desc {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    .item-type-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .item-arrow { color: #9ca3af; font-size: 16px; flex-shrink: 0; }
+
+    /* type tag colors */
+    .tag-link     { background: #dbeafe; color: #1d4ed8; }
+    .tag-form     { background: #fef3c7; color: #92400e; }
+    .tag-doc      { background: #d1fae5; color: #065f46; }
+    .tag-drive    { background: #ede9fe; color: #5b21b6; }
+    .tag-video    { background: #fee2e2; color: #991b1b; }
+    .tag-internal { background: #f3f4f6; color: #374151; }
+
+    /* ===== EMBED VIEW ===== */
+    #view-embed { display: none; }
+
+    .embed-header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 16px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .embed-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 4px;
+    }
+
+    .embed-open-link {
+      font-size: 12px;
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    .embed-open-link:hover { text-decoration: underline; }
+
+    .embed-frame-wrap {
+      width: 100%;
+      height: calc(100vh - 160px);
+      overflow: hidden;
+    }
+
+    .embed-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .loading { text-align: center; padding: 60px 20px; color: #9ca3af; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🎓 Lr 講師ポータル</h1>
+  <p>ダンススクールLr 講師・スタッフ向け</p>
+</header>
+
+<div class="back-bar" id="back-bar">
+  <span class="back-arrow">←</span>
+  <span id="back-label">戻る</span>
+</div>
+
+<!-- TOP VIEW -->
+<div id="view-categories">
+  <div class="faq-banner">
+    <a href="https://syoshinsya-dance-school-web.github.io/lr-faq/" target="_blank" rel="noopener">
+      <span class="faq-icon">❓</span>
+      よくある質問（FAQ）はこちら
+      <span style="margin-left:auto;opacity:0.8;font-size:13px;">↗</span>
+    </a>
+  </div>
+  <div style="height:16px"></div>
+  <div class="grid" id="cat-grid">
+    <div class="loading" style="grid-column:span 2">読み込み中…</div>
+  </div>
+</div>
+
+<!-- ITEM LIST VIEW -->
+<div id="view-items">
+  <div class="item-list" id="item-list"></div>
+</div>
+
+<!-- EMBED VIEW -->
+<div id="view-embed">
+  <div class="embed-header">
+    <div class="embed-title" id="embed-title"></div>
+    <a class="embed-open-link" id="embed-open-link" href="#" target="_blank" rel="noopener">別タブで開く ↗</a>
+  </div>
+  <div class="embed-frame-wrap">
+    <iframe id="embed-iframe" src="" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  const DATA_URL = './portal-data.json';
+  let data = null;
+  let currentCat = null;
+
+  const COLOR_HEX = {
+    blue: '#3b82f6', purple: '#a855f7', teal: '#14b8a6',
+    amber: '#f59e0b', red: '#ef4444', gray: '#6b7280', coral: '#f97316',
+  };
+
+  const TYPE_LABEL = {
+    link: 'リンク', form: 'フォーム', doc: 'ドキュメント',
+    drive: 'ドライブ', video: '動画', internal: 'FAQ',
+  };
+
+  async function loadData() {
+    try {
+      const res = await fetch(DATA_URL);
+      data = await res.json();
+      renderCategories();
+    } catch (e) {
+      document.getElementById('cat-grid').innerHTML =
+        '<p style="color:#ef4444;padding:20px;grid-column:span 2">データの読み込みに失敗しました。</p>';
+    }
+  }
+
+  function renderCategories() {
+    const grid = document.getElementById('cat-grid');
+    const cats = data.categories;
+    grid.innerHTML = '';
+
+    cats.forEach((cat, i) => {
+      const isLast = i === cats.length - 1;
+      const wide   = isLast && cats.length % 2 === 1;
+      const btn = document.createElement('button');
+      btn.className = `cat-btn ${cat.color}${wide ? ' wide' : ''}`;
+      btn.innerHTML = `<span class="cat-icon">${cat.icon}</span><span>${cat.label}</span>`;
+      btn.addEventListener('click', () => showItems(cat));
+      grid.appendChild(btn);
+    });
+  }
+
+  function showItems(cat) {
+    currentCat = cat;
+    const list = document.getElementById('item-list');
+    list.innerHTML = '';
+
+    cat.items.forEach(item => {
+      const el = document.createElement('div');
+      el.className = 'item-btn';
+      el.innerHTML = `
+        <div class="item-badge" style="background:${COLOR_HEX[cat.color]}">${typeIcon(item.type)}</div>
+        <div class="item-text">
+          <div class="item-title">${item.title}</div>
+          ${item.desc ? `<div class="item-desc">${item.desc}</div>` : ''}
+        </div>
+        <span class="item-type-tag tag-${item.type}">${TYPE_LABEL[item.type] || item.type}</span>
+        <span class="item-arrow">›</span>
+      `;
+      el.addEventListener('click', () => handleItem(item));
+      list.appendChild(el);
+    });
+
+    setView('items');
+    updateBackBar('トップに戻る', () => setView('categories'));
+  }
+
+  function handleItem(item) {
+    const embedTypes = ['form', 'doc', 'video'];
+
+    if (embedTypes.includes(item.type)) {
+      showEmbed(item);
+    } else {
+      window.open(item.url, '_blank', 'noopener');
+    }
+  }
+
+  function showEmbed(item) {
+    let src = item.url;
+
+    if (item.type === 'video') {
+      // Convert Google Drive /view → /preview
+      src = src.replace(/\/view(\?.*)?$/, '/preview');
+    }
+
+    document.getElementById('embed-title').textContent = item.title;
+    document.getElementById('embed-open-link').href = item.url;
+    document.getElementById('embed-iframe').src = src;
+
+    setView('embed');
+    updateBackBar(currentCat.label, () => showItems(currentCat));
+  }
+
+  function typeIcon(type) {
+    const icons = {
+      link: '🔗', form: '📋', doc: '📄',
+      drive: '📁', video: '▶️', internal: '❓',
+    };
+    return icons[type] || '📌';
+  }
+
+  function setView(name) {
+    document.getElementById('view-categories').style.display = name === 'categories' ? 'block' : 'none';
+    document.getElementById('view-items').style.display      = name === 'items'      ? 'block' : 'none';
+    document.getElementById('view-embed').style.display      = name === 'embed'      ? 'block' : 'none';
+
+    // Clear iframe when leaving embed to stop video/form
+    if (name !== 'embed') document.getElementById('embed-iframe').src = '';
+
+    const bar = document.getElementById('back-bar');
+    bar.classList.toggle('visible', name !== 'categories');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateBackBar(label, fn) {
+    document.getElementById('back-label').textContent = label;
+    document.getElementById('back-bar').onclick = fn;
+  }
+
+  loadData();
+</script>
+</body>
+</html>

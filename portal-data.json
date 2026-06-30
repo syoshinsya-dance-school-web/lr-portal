@@ -1,0 +1,177 @@
+{
+  "categories": [
+    {
+      "id": "today",
+      "label": "レッスン当日にやること",
+      "icon": "🔥",
+      "color": "red",
+      "items": [
+        {
+          "id": "t-1",
+          "title": "【出欠】hacomonoチェック",
+          "desc": "レッスン前に必ず出席を取る",
+          "type": "link",
+          "url": "https://syoshinsya-dance-school-admin.hacomono.jp/"
+        },
+        {
+          "id": "t-2",
+          "title": "【提出】レッスン後の動画送信",
+          "desc": "終わったらその場で動画を送る",
+          "type": "form",
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSeeATcD2_ltD0Dqba1yvxEshA8hjjGgeuIaPcn7XDPzonHy4w/viewform?pli=1"
+        },
+        {
+          "id": "t-3",
+          "title": "【日報】体験レッスンがあった日",
+          "desc": "体験の生徒が来た時の書き方",
+          "type": "doc",
+          "url": "https://docs.google.com/document/d/e/2PACX-1vTROcJIRz_v12LRyfzk7SSyuxfBHWP81nDGg43kkYDwmBavo3v90BQgO3VkVk6pciju4vqlDc8Qrt8M/pub"
+        }
+      ]
+    },
+    {
+      "id": "manual",
+      "label": "ルール・マニュアル関連",
+      "icon": "📘",
+      "color": "blue",
+      "items": [
+        {
+          "id": "m-1",
+          "title": "Lr運営マニュアル",
+          "desc": "スクールの基本ルール・困ったときはここ",
+          "type": "drive",
+          "url": "https://drive.google.com/open?id=1pWP67mur_c7IYYv6TcVAzLRF52iUlnHb&usp=drive_fs"
+        },
+        {
+          "id": "m-2",
+          "title": "人気の先生になれるBOOK",
+          "desc": "生徒が辞めないクラス作りの秘訣",
+          "type": "drive",
+          "url": "https://drive.google.com/file/d/1Ns9sPV2UjIj3MKg336qwC31EJdzjhLA2/view?usp=sharing"
+        },
+        {
+          "id": "m-3",
+          "title": "講師向けFAQ",
+          "desc": "よくある質問はこちら",
+          "type": "internal",
+          "url": "https://syoshinsya-dance-school-web.github.io/lr-faq/"
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "label": "レッスン動画",
+      "icon": "🎬",
+      "color": "teal",
+      "items": [
+        {
+          "id": "v-1",
+          "title": "ストレッチ動画",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1ZdcKd-QMjQqXMDeG9EYevR3lhrhTkPNZ/view?usp=drive_link"
+        },
+        {
+          "id": "v-2",
+          "title": "レベル1筋トレ",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1TmiDOoQ2CUN4JZAbLs62FHBOzKvuuCsY/view?usp=drive_link"
+        },
+        {
+          "id": "v-3",
+          "title": "レベル2筋トレ",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1ShYhjOttHH6KEygSuZdjFue_nFvn84tg/view?usp=drive_link"
+        },
+        {
+          "id": "v-4",
+          "title": "レベル3筋トレ",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1FAyh2EAxMwOweKjxxwiexvG22sAqds2p/view?usp=drive_link"
+        },
+        {
+          "id": "v-5",
+          "title": "アイソレーション",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1GDGio8SuOy911HuSKcWpd5PUHAkfS-LR/view?usp=drive_link"
+        },
+        {
+          "id": "v-6",
+          "title": "リズムトレーニング",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1BwUaLrrgbIVd9W-lbkK4922m-wOAHkay/view?usp=drive_link"
+        },
+        {
+          "id": "v-7",
+          "title": "レッスン見本",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1tBACoKJ-iGwiURdLyuel8YPiLgFoccU1/view?usp=sharing"
+        },
+        {
+          "id": "v-8",
+          "title": "右腕を作った先にはこんなクラスになる1",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1LiUFiWuk_wNzKgVMGcYjxlN0qAU62a-g/view?usp=sharing"
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "label": "申請関係",
+      "icon": "📝",
+      "color": "amber",
+      "items": [
+        {
+          "id": "a-1",
+          "title": "【報告】課題曲が決まったら",
+          "desc": "",
+          "type": "form",
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSe-S1EmC8jjGAzHqjADBu6Z_39ZYHyUa80xALbq_ebP7nkxkA/viewform?usp=sharing"
+        },
+        {
+          "id": "a-2",
+          "title": "【枠】体験・振替のオープン／クローズ",
+          "desc": "",
+          "type": "form",
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSdg6IVrwU_6UseFBwYe1qLI_NwbhiOfhsToEFfQZWPI9Y58lA/viewform?usp=header"
+        },
+        {
+          "id": "a-3",
+          "title": "【お金】交通費の申請",
+          "desc": "代行・見学など",
+          "type": "form",
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSfcSNIvJ-2wI7L7uZo6u-hV1oINxi-Q-sFFne9ZUC6IyRcZlg/viewform?usp=header"
+        }
+      ]
+    },
+    {
+      "id": "student",
+      "label": "生徒から質問されたら？",
+      "icon": "💬",
+      "color": "coral",
+      "items": [
+        {
+          "id": "s-1",
+          "title": "生徒用マイページ（ログイン画面）",
+          "desc": "",
+          "type": "link",
+          "url": "https://syoshinsya-dance-school.hacomono.jp/home"
+        },
+        {
+          "id": "s-2",
+          "title": "欠席・振替・退会のルール（公式案内）",
+          "desc": "",
+          "type": "link",
+          "url": "https://syoshinsya-dance-school.com/lesson-guide/"
+        }
+      ]
+    }
+  ]
+}
