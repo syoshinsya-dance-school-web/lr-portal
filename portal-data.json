@@ -66,56 +66,63 @@
       "items": [
         {
           "id": "v-1",
-          "title": "ストレッチ動画",
+          "title": "ストレッチ例",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1ZdcKd-QMjQqXMDeG9EYevR3lhrhTkPNZ/view?usp=drive_link"
         },
         {
+          "id": "v-9",
+          "title": "SAYAKA先生ストレッチ例",
+          "desc": "",
+          "type": "video",
+          "url": "https://drive.google.com/file/d/1GyzwteZuP04x6J9nZVqolmgdKKvsnFtC/view?usp=sharing"
+        },
+        {
           "id": "v-2",
-          "title": "レベル1筋トレ",
+          "title": "レベル1筋トレ例",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1TmiDOoQ2CUN4JZAbLs62FHBOzKvuuCsY/view?usp=drive_link"
         },
         {
           "id": "v-3",
-          "title": "レベル2筋トレ",
+          "title": "レベル2筋トレ例",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1ShYhjOttHH6KEygSuZdjFue_nFvn84tg/view?usp=drive_link"
         },
         {
           "id": "v-4",
-          "title": "レベル3筋トレ",
+          "title": "レベル3筋トレ例",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1FAyh2EAxMwOweKjxxwiexvG22sAqds2p/view?usp=drive_link"
         },
         {
           "id": "v-5",
-          "title": "アイソレーション",
+          "title": "アイソレーション例１",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1GDGio8SuOy911HuSKcWpd5PUHAkfS-LR/view?usp=drive_link"
         },
         {
           "id": "v-6",
-          "title": "リズムトレーニング",
+          "title": "リズムトレーニング例",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1BwUaLrrgbIVd9W-lbkK4922m-wOAHkay/view?usp=drive_link"
         },
         {
           "id": "v-7",
-          "title": "レッスン見本",
+          "title": "レッスン見本例",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1tBACoKJ-iGwiURdLyuel8YPiLgFoccU1/view?usp=sharing"
         },
         {
           "id": "v-8",
-          "title": "右腕を作った先にはこんなクラスになる1",
+          "title": "Lrレッスン 右腕を作った先にはこんなクラスになる例１",
           "desc": "",
           "type": "video",
           "url": "https://drive.google.com/file/d/1LiUFiWuk_wNzKgVMGcYjxlN0qAU62a-g/view?usp=sharing"
