@@ -16,7 +16,7 @@
         {
           "id": "t-2",
           "title": "【提出】レッスン後の動画送信",
-          "desc": "終わったらその場で動画を送る",
+          "desc": "レッスンから3日以内に動画を送る",
           "type": "form",
           "url": "https://docs.google.com/forms/d/e/1FAIpQLSeeATcD2_ltD0Dqba1yvxEshA8hjjGgeuIaPcn7XDPzonHy4w/viewform?pli=1"
         },
