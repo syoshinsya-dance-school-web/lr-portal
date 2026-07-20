@@ -167,8 +167,8 @@
           "id": "a-2",
           "title": "【枠】体験・振替のオープン／クローズ",
           "desc": "",
-          "type": "form",
-          "url": "https://docs.google.com/forms/d/e/1FAIpQLSdg6IVrwU_6UseFBwYe1qLI_NwbhiOfhsToEFfQZWPI9Y58lA/viewform?usp=header"
+          "type": "link",
+          "url": "https://script.google.com/macros/s/AKfycbwoNgyM7rSzgebq0ULzHf6rW8Z4kX6fN9Sy2P_6YQOk8VlxmBc-Ovw4OqvmeLpKuOOq/exec"
         },
         {
           "id": "a-3",
