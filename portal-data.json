@@ -160,8 +160,8 @@
           "id": "a-1",
           "title": "【報告】課題曲が決まったら",
           "desc": "",
-          "type": "form",
-          "url": "https://docs.google.com/forms/d/e/1FAIpQLSe-S1EmC8jjGAzHqjADBu6Z_39ZYHyUa80xALbq_ebP7nkxkA/viewform?usp=sharing"
+          "type": "link",
+          "url": "https://script.google.com/macros/s/AKfycbwoNgyM7rSzgebq0ULzHf6rW8Z4kX6fN9Sy2P_6YQOk8VlxmBc-Ovw4OqvmeLpKuOOq/exec?app=kadai"
         },
         {
           "id": "a-2",
