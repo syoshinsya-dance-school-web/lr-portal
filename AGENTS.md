@@ -9,6 +9,7 @@
 3. [ai-governance](https://github.com/syoshinsya-dance-school-web/ai-governance) の横断規約
    - `decisions/0002-ai-roles-and-authority.md`
    - `decisions/0003-repository-information-scope.md`
+   - `docs/AI_EXECUTION_RULES.md`
    - PMOの場合は `docs/PMO_OPERATING_RULES.md`
 
 ローカルに `../ai-governance/` がある場合は、GitHubではなくローカルの最新版を読む。
