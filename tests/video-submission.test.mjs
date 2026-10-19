@@ -4,9 +4,9 @@ import {readFile} from 'node:fs/promises';
 import {videoSubmissionItems,SAITAMA_VIDEO_URL} from '../video-submission.mjs';
 const data=JSON.parse(await readFile(new URL('../portal-data.json',import.meta.url),'utf8'));
 const today=data.categories.find(c=>c.id==='today');
-test('checked-in setting keeps the exact existing form and other entries',()=>{
- assert.equal(data.videoSubmission.saitamaEnabled,false);
- assert.strictEqual(videoSubmissionItems(today.items,data.videoSubmission),today.items);
+test('published setting enables Saitama while disabled or invalid settings preserve the existing entries',()=>{
+ assert.equal(data.videoSubmission.saitamaEnabled,true);
+ assert.strictEqual(videoSubmissionItems(today.items,{saitamaEnabled:false}),today.items);
  for(const setting of [undefined,{},null,{saitamaEnabled:'true'},{saitamaEnabled:1}])assert.strictEqual(videoSubmissionItems(today.items,setting),today.items);
 });
 test('enabled setting splits only the existing video entry into production Saitama and the unchanged legacy form',()=>{

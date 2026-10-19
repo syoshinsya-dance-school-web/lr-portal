@@ -6,7 +6,7 @@
 
 ## 埼玉の動画提出入口
 
-`portal-data.json` の `videoSubmission.saitamaEnabled` は **false**。既存の「レッスン後の動画送信」1件をそのまま表示する。PR作成/pushで本番を有効化しない。
+`portal-data.json` の `videoSubmission.saitamaEnabled` は **true**。オーナー承認済みの埼玉通常受付へ切り替える。公開前に動画本番の受付・本部承認・投稿・通知の有効化を確認する。
 
 trueにすると、その1件だけを「埼玉のレッスン動画」（新しい本番Worker `/teacher` を別タブで開く）と「埼玉以外のレッスン動画」（元のGoogleフォーム）へ分ける。dev/ステージングのURLを講師へ出さない。queryやlocalStorageからの切替は設けない。
 
