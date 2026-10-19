@@ -271,7 +271,8 @@
   </div>
 </div>
 
-<script>
+<script type="module">
+  import {videoSubmissionItems} from "./video-submission.mjs";
   const DATA_URL = './portal-data.json';
   let data = null;
   let currentCat = null;
@@ -318,7 +319,7 @@
     const list = document.getElementById('item-list');
     list.innerHTML = '';
 
-    cat.items.forEach(item => {
+    videoSubmissionItems(cat.items, data.videoSubmission).forEach(item => {
       const el = document.createElement('div');
       el.className = 'item-btn';
       el.innerHTML = `
