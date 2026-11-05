@@ -12,7 +12,7 @@
           "title": "【出欠】hacomonoチェック",
           "desc": "レッスン前に必ず出席を取る",
           "type": "link",
-          "url": "https://syoshinsya-dance-school-admin.hacomono.jp/"
+          "url": "https://syoshinsya-dance-school-admin.hacomono.jp/next/#/operation/auth/"
         },
         {
           "id": "t-2",
