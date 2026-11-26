@@ -1,5 +1,5 @@
 {
-  "videoSubmission": { "saitamaEnabled": true },
+  "videoSubmission": { "saitamaEnabled": true, "osakaEnabled": true },
   "categories": [
     {
       "id": "today",
