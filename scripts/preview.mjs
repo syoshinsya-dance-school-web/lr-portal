@@ -7,7 +7,7 @@ createServer(async(req,res)=>{
  if(!file||!['GET','HEAD'].includes(req.method)){res.writeHead(404);res.end();return;}
  try{
   let body=await readFile(new URL('../'+file,import.meta.url));
-  if(file==='portal-data.json'&&enabled){const data=JSON.parse(body);data.videoSubmission={saitamaEnabled:true};body=Buffer.from(JSON.stringify(data));}
+  if(file==='portal-data.json'&&enabled){const data=JSON.parse(body);data.videoSubmission={...data.videoSubmission,saitamaEnabled:true};body=Buffer.from(JSON.stringify(data));}
   res.writeHead(200,{'content-type':file.endsWith('.json')?'application/json; charset=utf-8':file.endsWith('.mjs')?'text/javascript; charset=utf-8':'text/html; charset=utf-8','cache-control':'no-store'});
   res.end(req.method==='HEAD'?undefined:body);
  }catch{res.writeHead(500);res.end('Preview unavailable');}

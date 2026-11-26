@@ -4,15 +4,15 @@
 
 今回の役割はオーナー/最終決定＝富田、PMO/実装＝Codex。認証・権限・本番等の重要な境界は独立監査の対象とし、実装者の確認と区別する。横断規約はAGENTS.mdを参照。
 
-## 埼玉の動画提出入口
+## 埼玉・大阪の動画提出入口
 
-`portal-data.json` の `videoSubmission.saitamaEnabled` は **true**。オーナー承認済みの埼玉通常受付へ切り替える。公開前に動画本番の受付・本部承認・投稿・通知の有効化を確認する。
+`portal-data.json` の `videoSubmission.saitamaEnabled` / `osakaEnabled` は **true**。埼玉・大阪の先生を既存の動画提出ページへ案内する。
 
-trueにすると、その1件だけを「埼玉のレッスン動画」（新しい本番Worker `/teacher` を別タブで開く）と「埼玉以外のレッスン動画」（元のGoogleフォーム）へ分ける。dev/ステージングのURLを講師へ出さない。queryやlocalStorageからの切替は設けない。
+有効な支部だけを「埼玉・大阪のレッスン動画」（本番Worker `/teacher` を別タブで開く、Googleログイン不要）へ案内し、「その他の支部のレッスン動画」は元のGoogleフォームを使う。dev/ステージングのURLを講師へ出さない。queryやlocalStorageからの切替は設けない。
 
 AIが必要な確認を行うコマンド:
 
-- `node --test tests/video-submission.test.mjs`：切替・元フォーム/他導線の維持・切戻し。
-- `node scripts/preview.mjs --saitama`：localhostだけで切替後を表示。配信用JSONはfalseのまま。
+- `node --test tests/video-submission.test.mjs`：支部別切替・元フォーム/他導線の維持・切戻し。
+- `node scripts/preview.mjs`：localhostで配信用JSONの状態を表示。`--saitama` は配信JSONを書換えず埼玉を追加有効化し、大阪設定を保持する。
 
-本番適用・停止・切戻しの操作範囲は[動画提出導線](docs/saitama-video-cutover.md)。
+大阪の本番適用・切戻し・講師向け案内文は[大阪の動画提出リンク切替](docs/osaka-video-cutover.md)。埼玉の初回切替記録は[動画提出導線](docs/saitama-video-cutover.md)。
