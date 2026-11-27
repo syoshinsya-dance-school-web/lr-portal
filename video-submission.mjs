@@ -2,7 +2,7 @@ export const SAITAMA_VIDEO_URL = 'https://lr-video-automation-prod.lr-video-auto
 
 /** Only the repository setting can switch the entry. URLs/query/storage never enable it. */
 export function videoSubmissionItems(items, settings) {
-  const branches = [settings?.saitamaEnabled === true && '埼玉', settings?.osakaEnabled === true && '大阪'].filter(Boolean);
+  const branches = [settings?.saitamaEnabled === true && '埼玉', settings?.osakaEnabled === true && '大阪', settings?.tokyoEnabled === true && '東京'].filter(Boolean);
   if (!branches.length) return items;
   const names = branches.join('・');
   return items.flatMap(item => item.id !== 't-2' ? [item] : [

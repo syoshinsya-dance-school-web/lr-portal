@@ -7,17 +7,18 @@ const today=data.categories.find(c=>c.id==='today');
 test('published setting enables Saitama while disabled or invalid settings preserve the existing entries',()=>{
  assert.equal(data.videoSubmission.saitamaEnabled,true);
  assert.equal(data.videoSubmission.osakaEnabled,true);
+ assert.equal(data.videoSubmission.tokyoEnabled,true);
  assert.strictEqual(videoSubmissionItems(today.items,{saitamaEnabled:false}),today.items);
  for(const setting of [undefined,{},null,{saitamaEnabled:'true'},{saitamaEnabled:1}])assert.strictEqual(videoSubmissionItems(today.items,setting),today.items);
 });
 test('published Osaka and Saitama entry uses the live selection portal and leaves every other card unchanged',()=>{
  const before=structuredClone(data),items=videoSubmissionItems(today.items,data.videoSubmission);
- assert.equal(items.find(i=>i.id==='t-2-saitama').title,'【提出】埼玉・大阪のレッスン動画');
+ assert.equal(items.find(i=>i.id==='t-2-saitama').title,'【提出】埼玉・大阪・東京のレッスン動画');
  assert.match(items.find(i=>i.id==='t-2-saitama').desc,/Googleログイン不要/);
  assert.equal(items.find(i=>i.id==='t-2-saitama').url,SAITAMA_VIDEO_URL);
  const legacy=items.find(i=>i.id==='t-2');
  assert.equal(legacy.title,'【提出】その他の支部のレッスン動画');
- assert.match(legacy.desc,/埼玉・大阪以外/);
+ assert.match(legacy.desc,/埼玉・大阪・東京以外/);
  assert.equal(legacy.url,today.items.find(i=>i.id==='t-2').url);
  assert.equal(legacy.type,'form');
  for(const category of data.categories.filter(c=>c.id!=='today'))assert.deepEqual(videoSubmissionItems(category.items,data.videoSubmission),category.items);
@@ -47,4 +48,17 @@ test('rollback restores the original one-button entry without routing existing o
  const active=videoSubmissionItems(today.items,{saitamaEnabled:true});assert.equal(active.filter(i=>i.id.startsWith('t-2')).length,2);
  const stopped=videoSubmissionItems(today.items,{saitamaEnabled:false});assert.strictEqual(stopped,today.items);
  assert.equal(stopped.filter(i=>i.id.startsWith('t-2')).length,1);
+});
+
+test('Tokyo can be disabled independently and invalid values never enable it',()=>{
+ const baseline={saitamaEnabled:true,osakaEnabled:true};
+ for(const tokyoEnabled of [false,undefined,'true',1,[],{}]){
+  const items=videoSubmissionItems(today.items,{...baseline,tokyoEnabled});
+  assert.equal(items.find(i=>i.id==='t-2-saitama').title,'【提出】埼玉・大阪のレッスン動画');
+  assert.match(items.find(i=>i.id==='t-2').desc,/埼玉・大阪以外/);
+ }
+ const onlyTokyo=videoSubmissionItems(today.items,{tokyoEnabled:true});
+ assert.equal(onlyTokyo.find(i=>i.id==='t-2-saitama').title,'【提出】東京のレッスン動画');
+ assert.equal(onlyTokyo.find(i=>i.id==='t-2-saitama').url,SAITAMA_VIDEO_URL);
+ assert.equal(onlyTokyo.find(i=>i.id==='t-2').url,today.items.find(i=>i.id==='t-2').url);
 });
