@@ -1,0 +1,78 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f1f5f4;color:#18312c;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.6}
+a{color:#0f6555}
+button,a{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible{outline:3px solid #d97706;outline-offset:4px}
+header{background:#123e35;color:white;padding:22px 20px}
+header>div,main,footer{max-width:680px;margin:auto}
+header p{margin:0;font-size:13px;color:#c3dfd5}
+h1{font-size:25px;line-height:1.5;margin:8px 0}
+h2{font-size:20px;margin:0 0 12px}
+h3{font-size:17px;margin:0 0 5px}
+p{margin:8px 0}
+main{padding:20px 16px 48px}
+.back{display:inline-block;margin-bottom:18px;font-weight:600}
+.lead{font-size:16px;margin-bottom:24px}
+.card,.panel{display:block;background:white;border:1px solid #d8e4de;border-radius:16px;padding:14px;margin:12px 0;color:inherit;text-decoration:none}
+.card .meta,.muted{color:#4f655d;font-size:13px}
+section{margin:18px 0}
+video{width:100%;display:block;border-radius:12px;background:#14251e;aspect-ratio:16/9}
+.action{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:12px;background:#0f766e;color:white;font:inherit;font-weight:700;font-size:18px;text-decoration:none;padding:15px 12px;cursor:pointer;margin:16px 0 6px}
+.secondary{background:white;color:#0f6555;border:1px solid #a8c4b5}
+.points{padding-left:26px;margin:0}
+.points li{padding:8px 0 8px 4px;font-weight:600}
+.note{border-left:4px solid #c58d30;background:#fff9e9;padding:14px 16px;border-radius:4px;font-size:14px}
+dialog{border:1px solid #bfd2c6;border-radius:18px;padding:24px;width:calc(100% - 32px);max-width:520px;color:#18312c}
+dialog::backdrop{background:#12291f99}
+dialog h2{margin-top:0}
+dialog ol{padding-left:25px}
+dialog li{margin-bottom:12px}
+footer{padding:16px;color:#52665d;font-size:12px}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:20px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+}
+
+
+.breadcrumbs { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:0 0 12px; font-size:12px; color:#52665d; }
+
+.breadcrumbs a { text-underline-offset:3px; padding:4px 0; }
+
+.breadcrumbs [aria-current] { font-weight:600; }
+
+.back { border:1px solid #bdd0c5; border-radius:10px; padding:8px 12px; background:#fff; text-decoration:none; }
+
+.bottom-back { margin:18px 0 0; }
+
+.tile-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+
+.category-tile { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px; min-height:108px; padding:14px; border-radius:16px; background:#0f766e; color:#fff; font-weight:700; text-decoration:none; text-align:center; }
+
+.tile-icon { font-size:28px; }
+
+.theme-tile { display:flex; align-items:center; gap:12px; grid-column:1/-1; padding:14px; border:1px solid #a8c4b5; border-radius:14px; background:#fff; color:inherit; text-decoration:none; }
+
+.theme-tile img { width:120px; height:auto; aspect-ratio:16/9; object-fit:contain; border-radius:8px; flex-shrink:0; }
+
+.tile-title { display:block; font-weight:700; font-size:15px; }
+
+.duration { display:block; color:#0f6555; font-size:13px; margin-top:4px; }
+
+.pending-topics { margin:14px 0 0; font-size:12px; color:#52665d; }
+
+@media(max-width:359px) { .theme-tile { gap:10px; padding:12px; }
+ .theme-tile img { width:100px; }
+ }
+
+
+.route-tile { display:flex; align-items:center; justify-content:center; padding:18px 12px; min-height:96px; border:1px solid #bdd0c5; border-radius:14px; background:white; color:#18312c; text-align:center; text-decoration:none; font-weight:700; font-size:14px; }
+
+.tile-grid > .category-tile:last-child:nth-child(odd) { grid-column:1/-1; }
+
+.tile-teal { background:#0f766e; }
+.tile-red { background:#b91c1c; }
+.tile-blue { background:#1d4ed8; }
+.tile-purple { background:#7e22ce; }
+
+.route-tile { gap:10px; flex-direction:column; }
+.route-icon { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; color:#fff; flex-shrink:0; }

@@ -1,0 +1,57 @@
+{
+  "categories": [
+    {
+      "id": "tasks",
+      "title": "日々やること",
+      "icon": "✅",
+      "groups": [
+        "最初だけやること"
+      ],
+      "preview": "動画の撮り方・提出／課題曲の提出／最初だけやること（LINE WORKS初期設定・新入会生徒の招待）",
+      "color": "teal"
+    },
+    {
+      "id": "lesson",
+      "title": "レッスン",
+      "icon": "🎵",
+      "preview": "レッスンの進め方／振り落としの時間／感動マニュアル／人気の先生になれるBOOK",
+      "color": "purple"
+    },
+    {
+      "id": "student",
+      "title": "生徒に聞かれるし間違えてはいけないこと",
+      "icon": "💬",
+      "preview": "料金・月謝／振替チケット／回数制／退会",
+      "color": "blue"
+    }
+  ],
+  "themes": [
+    {
+      "id": "nippo-taiken",
+      "category": "tasks",
+      "title": "体験があった日の日報",
+      "duration": "58秒",
+      "video": "../videos/lr-nippo-taiken.mp4",
+      "poster": "../assets/lr-nippo-taiken.png",
+      "ready": true
+    },
+    {
+      "id": "taiken-taio",
+      "category": "lesson",
+      "title": "体験者への対応",
+      "duration": "1分20秒",
+      "video": "../videos/lr-taiken-taio.mp4",
+      "poster": "../assets/lr-taiken-taio.png",
+      "ready": true
+    },
+    {
+      "id": "checkin",
+      "category": "tasks",
+      "title": "チェックインのやり方",
+      "duration": "46秒",
+      "video": "../videos/lr-checkin.mp4",
+      "poster": "../assets/lr-checkin.png",
+      "ready": true
+    }
+  ]
+}

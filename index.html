@@ -30,12 +30,15 @@
 
     /* FAQ banner */
     .faq-banner {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
       max-width: 480px;
       margin: 16px auto 0;
       padding: 0 12px;
     }
 
-    .faq-banner a {
+    .faq-banner a, .faq-banner > button {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,7 +48,10 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
-      padding: 14px 20px;
+      padding: 14px 8px;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
       border-radius: 14px;
       box-shadow: 0 4px 12px rgba(59,130,246,0.4);
       transition: opacity 0.15s, transform 0.12s;
@@ -227,6 +233,7 @@
 
     .loading { text-align: center; padding: 60px 20px; color: #9ca3af; font-size: 14px; }
   </style>
+<link rel="stylesheet" href="./assets/system-guide.css">
 </head>
 <body>
 
@@ -245,9 +252,10 @@
   <div class="faq-banner">
     <a href="https://syoshinsya-dance-school-web.github.io/lr-faq/" target="_blank" rel="noopener">
       <span class="faq-icon">❓</span>
-      よくある質問（FAQ）はこちら
+      よくある質問（FAQ）
       <span style="margin-left:auto;opacity:0.8;font-size:13px;">↗</span>
     </a>
+    <button type="button" data-system-guide aria-haspopup="dialog" style="background:linear-gradient(135deg,#b45309,#92400e)">▶ 基本システム</button>
   </div>
   <div style="height:16px"></div>
   <div class="grid" id="cat-grid">
@@ -323,7 +331,7 @@
       const el = document.createElement('div');
       el.className = 'item-btn';
       el.innerHTML = `
-        <div class="item-badge" style="background:${COLOR_HEX[cat.color]}">${typeIcon(item.type)}</div>
+        <div class="item-badge" style="background:${item.badgeColor || COLOR_HEX[cat.color]}">${item.icon || typeIcon(item.type)}</div>
         <div class="item-text">
           <div class="item-title">${item.title}</div>
           ${item.desc ? `<div class="item-desc">${item.desc}</div>` : ''}
@@ -393,5 +401,6 @@
 
   loadData();
 </script>
+<dialog class="system-guide-dialog" id="system-guide-dialog" aria-labelledby="system-guide-title"><h2 id="system-guide-title">基本システム</h2><video controls playsinline preload="metadata" poster="./assets/lr-system-guide.png" aria-label="Lr基本システム説明動画"><source src="./videos/lr-system-guide.mp4" type="video/mp4"></video><form method="dialog"><button>閉じる</button></form></dialog><script type="module" src="./assets/system-guide.mjs"></script>
 </body>
 </html>

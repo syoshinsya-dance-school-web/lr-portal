@@ -1,5 +1,9 @@
 {
-  "videoSubmission": { "saitamaEnabled": true, "osakaEnabled": true, "tokyoEnabled": true },
+  "videoSubmission": {
+    "saitamaEnabled": true,
+    "osakaEnabled": true,
+    "tokyoEnabled": true
+  },
   "categories": [
     {
       "id": "today",
@@ -9,10 +13,21 @@
       "items": [
         {
           "id": "t-1",
-          "title": "【出欠】hacomonoチェック",
+          "title": "【出欠】チェックイン-hacomono",
           "desc": "レッスン前に必ず出席を取る",
           "type": "link",
-          "url": "https://syoshinsya-dance-school-admin.hacomono.jp/next/#/operation/auth/"
+          "url": "https://syoshinsya-dance-school-admin.hacomono.jp/next/#/operation/auth/",
+          "badgeColor": "#0f766e",
+          "icon": "✓"
+        },
+        {
+          "id": "t-checkin-video",
+          "title": "【動画】チェックインのやり方",
+          "desc": "来た生徒の出欠確認を46秒で確認",
+          "type": "link",
+          "url": "./basics/checkin.html",
+          "badgeColor": "#1d4ed8",
+          "icon": "▶"
         },
         {
           "id": "t-2",
@@ -22,11 +37,13 @@
           "url": "https://docs.google.com/forms/d/e/1FAIpQLSeeATcD2_ltD0Dqba1yvxEshA8hjjGgeuIaPcn7XDPzonHy4w/viewform?pli=1"
         },
         {
-          "id": "t-3",
-          "title": "【日報】体験レッスンがあった日",
-          "desc": "体験の生徒が来た時の書き方",
-          "type": "doc",
-          "url": "https://docs.google.com/document/d/e/2PACX-1vTROcJIRz_v12LRyfzk7SSyuxfBHWP81nDGg43kkYDwmBavo3v90BQgO3VkVk6pciju4vqlDc8Qrt8M/pub"
+          "id": "t-3-video",
+          "title": "【動画】体験があった日の日報",
+          "desc": "58秒の説明と日報の出し方",
+          "type": "link",
+          "url": "./basics/nippo-taiken.html",
+          "badgeColor": "#7e22ce",
+          "icon": "▶"
         }
       ]
     },
@@ -49,6 +66,13 @@
           "desc": "生徒が辞めないクラス作りの秘訣",
           "type": "drive",
           "url": "https://drive.google.com/file/d/1Ns9sPV2UjIj3MKg336qwC31EJdzjhLA2/view?usp=sharing"
+        },
+        {
+          "id": "m-taiken-taio-video",
+          "title": "【動画】体験者への対応",
+          "desc": "迎える・レッスン中・終わったあとを1分20秒で確認",
+          "type": "link",
+          "url": "./basics/taiken-taio.html"
         },
         {
           "id": "m-3",
